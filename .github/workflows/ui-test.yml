@@ -1,0 +1,30 @@
+# Remove Environment files - default.json & development.json
+name: Run UI Unit Test
+on: 
+  push:
+    branches:
+      - master
+      - main
+      - dev
+   
+jobs:
+  run:
+    name: Run UI Unit Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Unit Testing
+        run: |
+          cd ui
+          npm ci
+          npm run test:cov
+          rm -rf coverage
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v7
+        with:
+          author_name: Pramod AJ
+          author_email: avj2352@gmail.com
+          message: 'Updating Test Coverage for UI'
+          add: '*'
