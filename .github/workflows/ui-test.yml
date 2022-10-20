@@ -1,4 +1,4 @@
-# Remove Environment files - default.json & development.json
+# Unit Test React UI
 name: Run UI Unit Test
 on: 
   push:
