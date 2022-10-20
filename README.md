@@ -1,7 +1,7 @@
 # Zurich Technical Assignment
 
 ![version](https://img.shields.io/badge/version-1.0.27-blue)
-[![Run API Unit Test](https://github.com/avj2352/zurich-apac-tech-assignment/actions/workflows/api-test.yml/badge.svg)](https://github.com/avj2352/zurich-apac-tech-assignment/api-test.yml)
+[![Run API Unit Test](https://github.com/avj2352/zurich-apac-tech-assignment/actions/workflows/api-test.yml/badge.svg)](https://github.com/avj2352/zurich-apac-tech-assignment/actions/workflows/api-test.yml)
 [![Run UI Unit Test](https://github.com/avj2352/zurich-apac-tech-assignment/actions/workflows/ui-test.yml/badge.svg)](https://github.com/avj2352/zurich-apac-tech-assignment/actions/workflows/ui-test.yml)
 
 
