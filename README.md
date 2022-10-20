@@ -1,5 +1,12 @@
 # Zurich Technical Assignment
-- ![version](https://img.shields.io/badge/version-1.0.27-blue)
+
+![version](https://img.shields.io/badge/version-1.0.27-blue)
+[![Run API Unit Test](https://github.com/avj2352/zurich-apac-tech-assignment/actions/workflows/api-test.yml/badge.svg)](https://github.com/avj2352/zurich-apac-tech-assignment/api-test.yml)
+[![Run UI Unit Test](https://github.com/avj2352/zurich-apac-tech-assignment/actions/workflows/ui-test.yml/badge.svg)](https://github.com/avj2352/zurich-apac-tech-assignment/actions/workflows/ui-test.yml)
+
+
+![Typescript logo](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)![Mongo DB Logo](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)![ReactLogo](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)![Chakra Logo](https://img.shields.io/badge/Chakra--UI-319795?style=for-the-badge&logo=chakra-ui&logoColor=white)![Swagger Logo](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=Swagger&logoColor=white)![Nest JS Logo](https://img.shields.io/badge/nestjs-E0234E?style=for-the-badge&logo=nestjs&logoColor=white)![AWS Logo](https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
+
 - [Demo Website Link (AWS Cloudfront)](https://d11ormolj9shwt.cloudfront.net/#/)
 
 ![Link logo](./design/logo.png)
