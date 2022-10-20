@@ -70,7 +70,6 @@ The Frontend / UI Layer of the solution.
 ![UI Architecture](./design//ui-architecture.jpg)
 
 ## Backend / API Layer Architecture
-
 ![API Architecture](./design//api-architecture.jpg)
 
 
