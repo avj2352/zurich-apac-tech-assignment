@@ -1,0 +1,8 @@
+/node_modules
+**/node_modules
+**/**/node_modules
+**/**/**/node_modules
+/aws/package-lock.json
+.DS_Store
+**/.DS_Store
+/api/dist/*

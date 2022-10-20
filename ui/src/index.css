@@ -1,0 +1,15 @@
+:root {
+    --dark-night-grey: rgb(20,20,30);
+}
+
+.Toastify__toast {
+    /*container styles*/    
+}
+
+.Toastify__toast-body {    
+    flex-grow: 2;
+}
+
+.Toastify__close-button {    
+    width: 10%;
+}
