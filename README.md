@@ -65,7 +65,7 @@ This Project (app) is buit by leveraging IaaS (Infrastructure as a Service). The
 
 ## Frontend / UI Layer Architecture and Tech Stack
 
-The Frontend / UI Layer of the solution.
+The Frontend is built using React v18.x and Redux (in Typescript). On the infrastructure, it consists of a S3 bucket hosting React App, connected to cloud front and served on HTTPS.
 
 ![UI Architecture](./design//ui-architecture.jpg)
 
