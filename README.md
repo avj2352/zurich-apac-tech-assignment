@@ -69,7 +69,42 @@ The Frontend is built using React v18.x and Redux (in Typescript). On the infras
 
 ![UI Architecture](./design//ui-architecture.jpg)
 
+### Technology Stack used
+
+- React v18.x - scaffolding using `create-react-app`
+- Typescript 
+- Redux - State management library
+- React Router Dom - Client side routes
+- Axios - Making Async calls to the Server
+- PicoCSS - Lightweight UI design library, great for POCs
+- Styled Components - Styling component library
+- Toastify - Notification library
+- Jest - All Unit testing is done using Jest
+- Github Actions (UI_test.yml) - Created a Github workflow to show build is passing and show the coverage
+- AWS CDK v2 - Hosting
+
+![UI Tech stack](./design/ui-tech-stack.jpg)
+
+### How to run it
+
+- Navigate to the project root folder `<root-folder>/ui`
+- Run `npm i`
+- Run `npm start`
+- In order to deploy, I have setup automation shell scripts under `<root-folder>/automation/scripts`
+- Run `zsh ui-clean.sh` to clean src files
+- Run `zsh ui-build.sh` to create a new build
+- Run `zsh ui-deploy.sh` which copies it into aws -> `build` folder
+- Then run `cdk deploy --ZurichTechSiteStack`
+
 ## Backend / API Layer Architecture
+
+The Backend API / Rest service is built using Nest JS. On the infrastructure, it consists of a S3 bucket for hosting and Lambda services and Apigateway which act as a proxy to the request response going in and out of Nest JS.
+
+The API is located under the following path:
+`./aws/lambda/api/`
+
+> NOTE: The Nest JS 
+
 ![API Architecture](./design//api-architecture.jpg)
 
 
