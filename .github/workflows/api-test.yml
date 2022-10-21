@@ -1,5 +1,4 @@
-# Remove default.json environment file under backend/config/ folder
-# Remove Environment files - default.json & development.json
+# Unit Test NestJS API
 name: Run API Unit Test
 on: 
   push:
