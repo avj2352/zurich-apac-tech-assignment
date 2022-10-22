@@ -49,7 +49,7 @@ _With this in mind, Zurich is concerned about:_
 
 # Design and Architecture
 
-This Project (app) is buit by leveraging IaaS (Infrastructure as a Service). The framework used is AWS CDK v2 (which is built on top of cloudformation and written in Typescript). 
+This Project (app) is built by leveraging IaaS (Infrastructure as a Service). The framework used is AWS CDK v2 (which is built on top of cloudformation and written in Typescript). 
 
 ## Infrastructure
 
@@ -169,7 +169,7 @@ Nest JS framework provides good support for OpenAPI specification.
 ![Mongo DB](./design/mongo.jpg)
 	- The DB doesn't store `any sensitive` information apart from Google email and first and last name and the jsonwebtoken that Google provides
 - Split architecture
-	- I typically use the API to statically serve the UI in the same location as the API serve. This is because I can make use of cookies for session storage
+	- I typically use the API to statically serve the UI in the same location as the API server. This is because I can make use of `cookies` for session storage
 	- Due to the assignment requesting use of AWS, I had to split the frontend and API into 2 cloudformation templates
 	- This would mean I cannot make use of Cookies to communicate session between the server and the client
 	- I send the JSON token as part of the URL and the React application has a React hook to read it and store as part of the localStorage
