@@ -85,7 +85,7 @@ The Frontend is built using React v18.x and Redux (in Typescript). On the infras
 
 ![UI Tech stack](./design/ui-tech-stack.jpg)
 
-### How to run it
+### How to run it and deploy
 
 - Navigate to the project root folder `<root-folder>/ui`
 - Run `npm i`
@@ -107,8 +107,73 @@ The API is located under the following path:
 
 ![API Architecture](./design//api-architecture.jpg)
 
+### Technology Stack Used
 
+- NestJS v8.x - Restful API framework
+- Typescript 
+- MongoDB Cloud - Database persistance layer 
+- OAuth2.0 Google strategy - OAuth2.0 sign on using Google
+- cross fetch - Node JS client library for making Async calls to 3rd party API
+- aws-lambda - AWS proxy server to the root API
+- esbuild - Javascript deployment library to AWS cloud
+- Jest - All Unit testing is done using Jest
+- Github Actions (API_test.yml) - Created a Github workflow to show build is passing and show the coverage
+- AWS CDK v2 - Hosting
 
+> NOTE: for the sake of the demo, I had to deploy the API on `Heroku Cloud` since I had some last minute problems transitioning the API code from AWS CDK v1.168.0 to AWS CDK v2.0. But I've provided the API cloudformation template along with API code in `aws` folder
 
+The RESTful API code is located at `/aws/lambda/api`
+
+### How to run it and deploy
+
+- Navigate to the project root folder `<root-folder>/aws/lambda/api/`
+- Run `npm i`
+- Run `npm start:dev` to run it locally on port 3001
+- In order to deploy, I have setup automation shell scripts under `<root-folder>/automation/scripts`
+- Run `zsh api-clean.sh` to clean src files
+- Run `zsh api-build.sh` to create a new build
+- Then run `cdk deploy --ZurichTechAPIStack` to deploy to AWS cloud
+
+## Testing and Automation
+
+### Unit Testing
+
+Both the frontend and API were built using `Test driven development` approach. Given the timeframe, I have not been able to achieve >80% code coverage but written just enough to touch every aspect of code. 😅
+
+- Unit Testing & Code coverage reports for UI can be found in the repository > actions > `Run UI Unit Test`
+- Unit Testing & Code coverage reports for API can be found in the repository > actions > `Run API Unit Test`
+- ❗Unit Testing & Code coverage for AWS cloudformation has to be run locally, Github has problems setting up the AWS env on the cloud.
+	- Navigate to `aws/`
+	- run `npm i`
+	- run `npm run test` to see the unit test result.
+
+### Automation
+- I used `JMeter` to show the API Automation. The JMeter file can be found in - `automation/z-tech.jmx`
+![Automation results](./design/jmeter-api-automation-screenshot.jpg)
+
+### Swagger Documentation
+
+Nest JS framework provides good support for OpenAPI specification.
+- Links to API Swagger documentation
+	- [Users Module](https://zurich-tech-api.herokuapp.com/swagger/api/users/)
+	- [Auth Module](https://zurich-tech-api.herokuapp.com/swagger/api/auth/)
+	- [Health Module](https://zurich-tech-api.herokuapp.com/swagger/api/health/)
+
+# Challenges Faced
+
+- I had trouble deploying the API to AWS cloud in the given timeframe mainly due to -
+	- the cloudformation template I was using earlier to deploy were all AWS CDK v1.168.x
+	- I encountered deployment errors especially on the API side, so as last minute effort deploy the code to heroku to show it works
+- Unnecessary use of a DB - 
+	- right now the Mongo DB is used purely to store the users who sign up for the first time, this is not required but for the sake of simplicity I added in Mongo DB
+![Mongo DB](./design/mongo.jpg)
+	- The DB doesn't store `any sensitive` information apart from Google email and first and last name and the jsonwebtoken that Google provides
+- Split architecture
+	- I typically use the API to statically serve the UI in the same location as the API serve. This is because I can make use of cookies for session storage
+	- Due to the assignment requesting use of AWS, I had to split the frontend and API into 2 cloudformation templates
+	- This would mean I cannot make use of Cookies to communicate session between the server and the client
+	- I send the JSON token as part of the URL and the React application has a React hook to read it and store as part of the localStorage
+	- JSON web tokens are `URL safe!!` plus they have expiry time of 24 hours `{exp: '24h'}`
+	
 
 
