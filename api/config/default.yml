@@ -1,0 +1,17 @@
+server:
+  port: 3001
+  name: ZurichTech
+  version: 1.0.27
+
+db:
+  uri: <enter-mongo-db-connection-url>
+
+oauth:
+  google:
+    client_id: <google-oauth-2.0-client-id>
+    client_secret: <google-oauth-2.0-client-secret>
+    redirect_uri: /auth/redirect
+    client_url: https://d11ormolj9shwt.cloudfront.net/#/
+
+reqres:
+  api: https://reqres.in/api
