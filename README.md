@@ -35,6 +35,8 @@ _With this in mind, Zurich is concerned about:_
 
 # Important Links
 
+- [Redux Toolkit Docs](https://redux-toolkit.js.org/introduction/getting-started)
+- [Redux Toolkit Youtube](https://www.youtube.com/watch?v=9zySeP5vH9c&t=8s)
 - [Link to the Technical Assignment](https://d11ormolj9shwt.cloudfront.net/#/)
 - Links to API Swagger documentation
 	- [Users Module](https://zurich-tech-api.herokuapp.com/swagger/api/users/)
