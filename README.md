@@ -20,7 +20,7 @@ This project aims in creating a Web Application to meet the requirements of the 
 
 - _Redesign Frontend purely using JSX (No Typescript)_
 	- The `UI` folder in `jsx-ui` branch is built using React (Javascript) + Redux Toolkit
-- _User Mock API call instead of calling Actual APIs_
+- _Use Mock server and API call instead of calling Actual APIs_
 	- I have introduced `json-server` and mocked the API response as part of `mock.json`
 - _Make use of Redux Toolkit (latest) with Redux Thunk_
 	- The `UI` uses `"@reduxjs/toolkit": "^1.8.6",` which is the latest
