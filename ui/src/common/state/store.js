@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import userInfoReducer from '../../common/state/info/user.slice';
-import userProfileReducer from '../../common/state/profile/profile.slice';
+import userInfoReducer from './info/User.slice';
+import userProfileReducer from './profile/Profile.slice';
 
 
 export const store = configureStore({

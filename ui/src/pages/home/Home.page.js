@@ -1,15 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types'
 import styled from '@emotion/styled';
-import { useDispatch } from 'react-redux';
-import { AiFillGoogleCircle } from 'react-icons/ai';
-// custom
-import { APP_INFO } from '../../common/helpers/App.constant';
-import { fetchUserProfileAsync } from '../../common/state/profile/Profile.slice';
-import { Row } from '../../components/common-styled/Common.styled';
-import logo from './../../assets/img/logo.png';
+import React, {FunctionComponent, useEffect} from 'react';
+import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { fetchUserInfoAsync } from '../../common/state/info/User.slice';
+import { APP_INFO } from '../../common/helpers/App.constant';
+import logo from './../../assets/img/logo.png';
 
 const ContainerStyled = styled.main`
     display: grid;
@@ -52,22 +46,41 @@ const HeaderGroupStyled = styled.hgroup`
         text-align: center;
     }
     p {
-        margin: 10px;
+        margin: 20px;
+    }
+
+    a {
+        cursor: pointer;
+    }
+`;
+
+const Row = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    button {
+        margin: 4px 2px;
+    }
+
+    @media (max-width: 340px) {
+        flex-direction: column;
     }
 `;
 
 
-function LoginPage ({type}) {
-    // states
-    const loginTypeText = type === 'signIn' ? 'Sign In' : 'Sign Up';
-    const dispatch = useDispatch();
+function HomePage () {    
     const history = useHistory();
 
-    // evt handlers
-    function handleLogin() {
-        dispatch(fetchUserProfileAsync());
-        dispatch(fetchUserInfoAsync());
-        history.push({pathname: '/dashboard'})
+    function handleLogin(type) {
+        if (type === 'signUp')
+            history.push({pathname: '/signup'});
+        else
+            history.push({pathname: '/signin'})
+    }
+
+    function handleGithubLink () {
+        window.open(APP_INFO.github);
     }
 
     return <ContainerStyled className='container'>
@@ -75,21 +88,26 @@ function LoginPage ({type}) {
         <div>
           <HeaderGroupStyled>
             <LogoImageStyled src={logo} alt='logo-img'/>            
-            <h2>{APP_INFO.appName}</h2>
-            <p>{loginTypeText} using your Google account</p>
+            <h2>{APP_INFO.appName}</h2>            
             <Row>
+                <button 
+                    onClick={handleLogin.bind(null, 'signUp')}
+                    className='primary'>Sign Up</button>
                 <button
-                    onClick={handleLogin} 
-                    className='primary'>{loginTypeText} using <AiFillGoogleCircle/></button>                
-            </Row>            
+                    onClick={handleGithubLink}
+                    className='secondary outline'>Github Repo</button>
+            </Row>   
+            <p>Already have an account?
+                <a                    
+                    rel='login-button'
+                    onClick={handleLogin.bind(null, 'signIn')}>
+                     Sign In using your account
+                </a>
+            </p>         
           </HeaderGroupStyled>          
         </div>        
       </article>
     </ContainerStyled>
 }
 
-LoginPage.propTypes = {
-    type: PropTypes.string.isRequired
-};
-
-export default LoginPage;
+export default HomePage;

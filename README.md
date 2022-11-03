@@ -16,6 +16,37 @@ This project aims in creating a Web Application to meet the requirements of the 
 
 # TLDR;
 
+# Update based on Technical Interview on October 31st 2022 (Monday)
+
+- _Redesign Frontend purely using JSX (No Typescript)_
+	- The `UI` folder in `jsx-ui` branch is built using React (Javascript) + Redux Toolkit
+- _User Mock API call instead of calling Actual APIs_
+	- I have introduced `json-server` and mocked the API response as part of `mock.json`
+- _Make use of Redux Toolkit (latest) with Redux Thunk_
+	- The `UI` uses `"@reduxjs/toolkit": "^1.8.6",` which is the latest
+	- Redux Thunk wrapper for Async calls, is also part of `user.slice.js` and `profile.slice.js`
+- _Unit Test using Redux Toolkit Provider wrapper_
+	- Unit testing on reducers (slice) as well as components with Redux Provider as a wrapper
+
+## How to run ?
+
+- Clone the repo
+- Switch to `jsx-ui` branch
+- Run `npm i`
+- Run `npm start` to run both mock server and react application
+- To start only mock server `npm run dev:mock`
+- To start only react application `npm run dev:ui`
+
+The Mock server can be tested by running `curl` from terminal
+
+```bash
+# Fetch profile information
+curl http://localhost:8080/profile
+
+# Fetch user information
+curl http://localhost:8080/users
+```
+
 
 # Technical Assignments (with description)
 

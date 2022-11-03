@@ -6,23 +6,15 @@ import { Router } from 'react-router-dom';
 import { render } from '@testing-library/react';
 import { ToastContainer } from 'react-toastify';
 // custom
-import { store } from '../state/store';
+import {store} from '../../common/state/store';
 
 const history = createMemoryHistory();
 
-export function ReduxProvider ({children}) {
-    window.matchMedia = jest.fn().mockImplementation(query => {
-        return {
-          matches: false,
-          media: '',
-          onchange: null,
-          addListener: jest.fn(),
-          removeListener: jest.fn(),
-        };
-    });
+export function ReduxProvider ({children}) {    
     return <Provider store={store}>        
                 <Router history={history}>
                     {children}
+                    <ToastContainer/>
                 </Router>  
                 <ToastContainer/>      
     </Provider>;

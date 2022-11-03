@@ -1,5 +1,5 @@
 // A mock function to mimic making an async request for data
-export const BASE_URL = `http:localhost:8080`;
+export const BASE_URL = `http://localhost:8080`;
 
 // AUTHENTICATION =====================================
 /**
@@ -10,8 +10,8 @@ export const BASE_URL = `http:localhost:8080`;
  * @returns {Promise<any>}
  */
  export const getUserDetails = async () => {
-    return fetch(`${BASE_URL}/profile`)
-        .then((response) => response.json());
+    const response = await fetch(`${BASE_URL}/profile`);
+    return response.json();
 };
 
 export async function fetchUsers() {
@@ -25,6 +25,6 @@ export async function fetchUsers() {
  * @returns {Promise<any>}
  */
  export const getUserInfo = async () => {
-    return fetch(`${BASE_URL}/users`)
-        .then((response) => response.json());
+    const response = await fetch(`${BASE_URL}/users`);        
+    return response.json();
 }

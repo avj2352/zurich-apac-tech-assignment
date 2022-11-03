@@ -1,6 +1,11 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
+
+/**
+ * Styled components that are reusable
+ * > NOTE: Consists of purely styled components
+ */
 export const Row = styled.div`
     width: 100%;
     display: flex;
