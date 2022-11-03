@@ -30,8 +30,11 @@ This project aims in creating a Web Application to meet the requirements of the 
 
 ## How to run ?
 
+> NOTE: The New React application is under `ui` folder and under `jsx-ui` branch
+
 - Clone the repo
 - Switch to `jsx-ui` branch
+- Navigate to `ui` folder `cd ui`
 - Run `npm i`
 - Run `npm start` to run both mock server and react application
 - To start only mock server `npm run dev:mock`
