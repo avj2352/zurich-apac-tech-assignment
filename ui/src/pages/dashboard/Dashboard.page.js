@@ -6,18 +6,22 @@ import {Header} from '../../components/header/Header';
 import {UserInfoTable} from '../../components/table/UserInfoTable';
 import {SimpleSpinner} from '../../components/loaders/SimpleSpinner';
 import { selectUserInfo } from '../../common/state/info/User.slice';
+import { selectUserProfileToken } from '../../common/state/profile/Profile.slice';
+import { useHistory } from 'react-router-dom';
 
 function DashboardPage () {    
     const userInfo = useSelector(selectUserInfo);
+    const token = useSelector(selectUserProfileToken);
     const [userList, setUserList] = useState([]);
+    const history = useHistory();
     
     useEffect(()=>{
-        setTimeout(()=>{
-            const filterdInfo = userInfo.filter(item => (item.first_name.startsWith("G") 
-                || item.last_name.startsWith("W")));
-            setUserList(filterdInfo);                        
-        },2000);
-    },[userInfo]);
+        if (token === undefined || token == '') history.push({pathname: '/'});
+        // TODO: check with WeeLee if filter is still required
+        // const filteredResponse  = userInfo.filter(item => (item.first_name.startsWith("G") 
+        // || item.last_name.startsWith("W")));
+        setUserList(userInfo);
+    },[userInfo, token]);
 
     return <React.Fragment>
        <Header/>

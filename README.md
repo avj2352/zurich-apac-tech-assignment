@@ -16,7 +16,33 @@ This project aims in creating a Web Application to meet the requirements of the 
 
 # TLDR;
 
-# Update based on Technical Interview on October 31st 2022 (Monday)
+# Technical Assignment - III
+
+- _Use redux toolkit's built in reducer to fetch API concurrently_
+- UI Built in Javascript (JSX)
+- Redux toolkit, makes proxy calls to the Request Response multiple times and populates user data using token
+- Entire application now talks to the Actual Server (Authentication and Session Management)
+- Not using Axios, instead using Fetch API
+- Unit Testing of all React components
+
+```javascript
+export const fetchUserInfoAsync = createAsyncThunk(
+  'info/getUserInfo',
+  async (accessToken) => {
+    // fetch api in one go
+    // console.log('Dispatch fetch users info', accessToken);
+    const callList = [await getUserInfo(accessToken, 1), await getUserInfo(accessToken, 2)];
+    const response = await Promise.all(callList);
+    const data = response;
+    const userList = data.reduce((acc, prev)=>{prev.data.map(item => {acc.push(item)}); return acc}, []);
+    return userList;
+  }
+);
+```
+
+# Technical Assignment - II
+
+## Update based on Technical Interview on October 31st 2022 (Monday)
 
 - _Redesign Frontend purely using JSX (No Typescript)_
 	- The `UI` folder in `jsx-ui` branch is built using React (Javascript) + Redux Toolkit
@@ -51,7 +77,7 @@ curl http://localhost:8080/users
 ```
 
 
-# Technical Assignments (with description)
+# Technical Assignment - I (with description) - (24th October 2022)
 
 _With this in mind, Zurich is concerned about:_
 -  _React hosting solutions_

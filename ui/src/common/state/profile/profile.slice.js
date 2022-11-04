@@ -29,12 +29,15 @@ export const fetchUserProfileAsync = createAsyncThunk(
 );
 
 export const userProfileSlice = createSlice({
-  name: 'profile',
+  name: 'userProfile',
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {  
     updateProfile: (state, action) => {
        state.profile = action.payload;
+    },
+    updateToken: (state, action) => {
+      state.token = action.payload;
     }  
   },
   // The `extraReducers` field lets the slice handle actions defined elsewhere,
@@ -51,10 +54,12 @@ export const userProfileSlice = createSlice({
   },
 });
 
-export const { updateProfile } = userProfileSlice.actions;
+export const { updateProfile, updateToken } = userProfileSlice.actions;
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
-export const selectUserProfile = (state) => state.profile.data;
+export const selectUserProfile = (state) => state.userProfile.profile;
+export const selectUserProfileToken = (state) => state.userProfile.token;
+export const selectUserProfileStatus = (state) => state.userProfile.status;
 
 export default userProfileSlice.reducer;

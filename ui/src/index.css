@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.Toastify__toast {
+  /*container styles*/    
+}
+
+.Toastify__toast-body {    
+  flex-grow: 2;
+}
+
+.Toastify__close-button {    
+  width: 10%;
+}

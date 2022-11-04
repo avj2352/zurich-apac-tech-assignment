@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import {useHistory} from 'react-router-dom';
+// custom
+import { logoutEvent } from '../../common/helpers/LocalStorage';
 
 const Navbar  = styled.nav`
     background-color: var(--dark-night-grey);
@@ -10,6 +12,7 @@ export function Header () {
     const history = useHistory();
 
     function handleLogout() {
+        logoutEvent();
         history.push({pathname:'/'});
     }
     return <React.Fragment>

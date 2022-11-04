@@ -6,6 +6,6 @@ import userProfileReducer from './profile/Profile.slice';
 export const store = configureStore({
   reducer: {    
     info: userInfoReducer,
-    profile: userProfileReducer
+    userProfile: userProfileReducer
   },
 });

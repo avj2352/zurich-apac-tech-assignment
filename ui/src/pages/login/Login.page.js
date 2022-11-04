@@ -1,15 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled';
-import { useDispatch } from 'react-redux';
 import { AiFillGoogleCircle } from 'react-icons/ai';
 // custom
+import { loginToGoogle } from '../../common/async/AsyncCalls';
 import { APP_INFO } from '../../common/helpers/App.constant';
-import { fetchUserProfileAsync } from '../../common/state/profile/Profile.slice';
 import { Row } from '../../components/common-styled/Common.styled';
 import logo from './../../assets/img/logo.png';
-import { useHistory } from 'react-router-dom';
-import { fetchUserInfoAsync } from '../../common/state/info/User.slice';
 
 const ContainerStyled = styled.main`
     display: grid;
@@ -60,16 +57,7 @@ const HeaderGroupStyled = styled.hgroup`
 function LoginPage ({type}) {
     // states
     const loginTypeText = type === 'signIn' ? 'Sign In' : 'Sign Up';
-    const dispatch = useDispatch();
-    const history = useHistory();
-
-    // evt handlers
-    function handleLogin() {
-        dispatch(fetchUserProfileAsync());
-        dispatch(fetchUserInfoAsync());
-        history.push({pathname: '/dashboard'})
-    }
-
+    
     return <ContainerStyled className='container'>
         <article className="grid">
         <div>
@@ -79,7 +67,7 @@ function LoginPage ({type}) {
             <p>{loginTypeText} using your Google account</p>
             <Row>
                 <button
-                    onClick={handleLogin} 
+                    onClick={loginToGoogle} 
                     className='primary'>{loginTypeText} using <AiFillGoogleCircle/></button>                
             </Row>            
           </HeaderGroupStyled>          

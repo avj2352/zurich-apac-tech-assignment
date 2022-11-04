@@ -19,12 +19,14 @@ const initialState = {
 // typically used to make async requests.
 export const fetchUserInfoAsync = createAsyncThunk(
   'info/getUserInfo',
-  async () => {
-    console.log('Dispatch fetch users info');
-    const response = await getUserInfo();
-    // The value we return becomes the `fulfilled` action payload
-    console.log('user info details: ', response);
-    return response;
+  async (accessToken) => {
+    // fetch api in one go
+    // console.log('Dispatch fetch users info', accessToken);
+    const callList = [await getUserInfo(accessToken, 1), await getUserInfo(accessToken, 2)];
+    const response = await Promise.all(callList);
+    const data = response;
+    const userList = data.reduce((acc, prev)=>{prev.data.map(item => {acc.push(item)}); return acc}, []);
+    return userList;
   }
 );
 
@@ -51,6 +53,7 @@ export const userInfoSlice = createSlice({
       });
   },
 });
+
 export const { updateList } = userInfoSlice.actions;
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
